@@ -1,11 +1,11 @@
 {
-    "name": "tsyama/laravel-soft-delete-flag",
+    "name": "mikeqci/laravel-soft-delete-flag",
     "description": "A Laravel package that can use Boolean column for soft deletes.",
     "type": "library",
     "authors": [
         {
-            "name": "tsyama",
-            "email": "tsyama.desu@gmail.com"
+            "name": "mikeqci",
+            "email": "mwright@quickcustomintelligence.com"
         }
     ],
     "require": {
@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Tsyama\\LaravelSoftDeleteFlag\\": "src/"
+            "Mikeqci\\LaravelSoftDeleteFlag\\": "src/"
         }
     }
 }

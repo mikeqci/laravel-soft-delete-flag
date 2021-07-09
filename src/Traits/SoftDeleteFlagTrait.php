@@ -46,7 +46,7 @@ trait SoftDeleteFlagTrait
             return false;
         }
 
-        $this->{$this->getDeletedAtColumn()} = false;
+        $this->{$this->getDeletedAtColumn()} = null;
 
         $this->exists = true;
 
