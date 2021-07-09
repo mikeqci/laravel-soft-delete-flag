@@ -1,3 +1,7 @@
+#Attribution
+This is a direct copy of https://github.com/tsyama/laravel-soft-delete-flag - I only made `null` be the "not deleted"
+state, rather than `false`
+
 # laravel-soft-delete-flag
 A Laravel package that can use Boolean column ​​for soft deletes.
 
@@ -18,7 +22,7 @@ composer require tsyama/laravel-soft-delete-flag
 <?php
 namespace App;
 
-use Tsyama\LaravelSoftDeleteFlag\Traits\SoftDeleteFlagTrait;
+use Mikeqci\LaravelSoftDeleteFlag\Traits\SoftDeleteFlagTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class User extends Model

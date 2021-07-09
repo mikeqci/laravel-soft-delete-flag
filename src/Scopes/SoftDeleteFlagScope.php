@@ -10,7 +10,10 @@ class SoftDeleteFlagScope extends SoftDeletingScope
 {
     public function apply(Builder $builder, Model $model)
     {
-        $builder->where($model->getQualifiedDeletedAtColumn(), false);
+        $builder->where(function($q) use($model){
+            $q->where($model->getQualifiedDeletedAtColumn(), false)
+                ->orWhereNull($model->getQualifiedDeletedAtColumn());
+        });
     }
 
     public function extend(Builder $builder)
@@ -33,7 +36,7 @@ class SoftDeleteFlagScope extends SoftDeletingScope
         $builder->macro('restore', function (Builder $builder) {
             $builder->withTrashed();
 
-            return $builder->update([$builder->getModel()->getDeletedAtColumn() => false]);
+            return $builder->update([$builder->getModel()->getDeletedAtColumn() => null]);
         });
     }
 
@@ -44,7 +47,7 @@ class SoftDeleteFlagScope extends SoftDeletingScope
 
             $builder
                 ->withoutGlobalScope($this)
-                ->where($model->getQualifiedDeletedAtColumn(), false);
+                ->where($model->getQualifiedDeletedAtColumn(), null);
 
             return $builder;
         });
